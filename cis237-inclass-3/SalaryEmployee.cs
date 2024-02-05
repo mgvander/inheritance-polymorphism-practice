@@ -1,15 +1,25 @@
-﻿using System;
+﻿/// Author: Michael VanderMyde
+/// Course: CIS 237
+/// Inclass 3
+
+using System;
 
 namespace cis237_inclass_3
 {
-    class Employee
+    class SalaryEmployee
     {
+        //*****************************
+        // Constants
+        //*****************************
+        const int WEEKS_PER_YEAR = 52;
+
         //*****************************
         //Variable / Backing fields
         //*****************************
         private string firstName;
         private string lastName;
         private decimal weeklySalary;
+        private decimal yearlyBonus;
 
         //*****************************
         //Properties
@@ -29,7 +39,17 @@ namespace cis237_inclass_3
         public decimal WeeklySalary
         {
             get { return weeklySalary; }
-            set { weeklySalary = value; }
+        }
+
+        public decimal YearlyBonus
+        {
+            get { return yearlyBonus; }
+            set { yearlyBonus = value; }
+        }
+
+        public decimal YearlySalary
+        {
+            get { return (WeeklySalary * WEEKS_PER_YEAR) + yearlyBonus; }
         }
 
         //******************************
@@ -42,20 +62,34 @@ namespace cis237_inclass_3
 
         public override string ToString()
         {
-            return firstName + " " + lastName + " " + weeklySalary.ToString("C");
+            return $"{firstName} {lastName} {WeeklySalary.ToString("C")}";
+        }
+
+        public string FormattedWeeklySalary()
+        {
+            return WeeklySalary.ToString("C");
+        }
+
+        public string FormattedYearlySalary()
+        {
+            return ((WeeklySalary * WEEKS_PER_YEAR) + yearlyBonus).ToString("C");
         }
 
         //*****************************
         //Constructors
         //*****************************
-        public Employee(string FirstName, string LastName, decimal WeeklySalary)
+        public SalaryEmployee(string FirstName, 
+                              string LastName, 
+                              decimal WeeklySalary,
+                              decimal YearlyBonus)
         {
             this.firstName = FirstName;
             this.lastName = LastName;
             this.weeklySalary = WeeklySalary;
+            this.yearlyBonus = YearlyBonus;
         }
 
-        public Employee()
+        public SalaryEmployee()
         {
             //Do Nothing
         }

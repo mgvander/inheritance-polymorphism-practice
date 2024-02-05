@@ -1,4 +1,8 @@
-﻿using System;
+﻿/// Author: Michael VanderMyde
+/// Course: CIS 237
+/// Inclass 3
+
+using System;
 
 namespace cis237_inclass_3
 {
