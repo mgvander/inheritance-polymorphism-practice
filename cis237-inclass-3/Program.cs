@@ -14,23 +14,24 @@ namespace cis237_inclass_3
             //Just commented this to use the static one instead
             UserInterface ui = new UserInterface();
 
-            //Here is a new employee being created using the default
-            //constructor that we wrote in the Employee class
-            //Even though we aren't using it, I want you to see a single instance
-            //of one vs an array of them.
-            SalaryEmployee myEmployee = new SalaryEmployee();
+            // Here is a new employee being created using the default
+            // constructor that we wrote in the Employee class
+            // Even though we aren't using it, I want you to see a single instance
+            // of one vs an array of them.
+            Employee myEmployee = new SalaryEmployee();
 
-            //Let's make an array to hold a bunch of instances of the Employee class
-            SalaryEmployee[] employees = new SalaryEmployee[10];
+            // Let's make an array to hold a bunch of instances of the Employee class
+            Employee[] employees = new Employee[10];
 
-            //Let's add some employees to our array
+            // Let's add some employees to our array
             employees[0] = new SalaryEmployee("David", "Barnes", 835.00m, 4000m);
-            employees[1] = new SalaryEmployee("James", "Kirk", 453.00m, 1000m);
+            employees[1] = new HourlyEmployee("James", "Kirk", 53.00m, 10m);
             employees[2] = new SalaryEmployee("Jean-Luc", "Picard", 290.00m, 2000m);
-            employees[3] = new SalaryEmployee("Benjamin", "Sisko", 587.00m, 1500m);
+            employees[3] = new HourlyEmployee("Benjamin", "Sisko", 87.00m, 15m);
             employees[4] = new SalaryEmployee("Kathryn", "Janeway", 194.00m, 2500m);
-            employees[5] = new SalaryEmployee("Johnathan", "Archer", 135.00m, 600m);
-            employees[6] = new SalaryEmployee("Carol", "Freeman", 115.00m, 590m);
+            employees[5] = new HourlyEmployee("Johnathan", "Archer", 35.00m, 60m);
+            employees[6] = new Employee("Gabriel", "Lorca");
+            employees[7] = new HourlyEmployee("Carol", "Freeman", 115.00m, 59m);
 
             //Get some input from the user
             int choice = ui.GetUserInput();
@@ -45,7 +46,7 @@ namespace cis237_inclass_3
                     string outputString = "";
 
                     //Print out the employees in the array
-                    foreach (SalaryEmployee employee in employees)
+                    foreach (Employee employee in employees)
                     {
                         if (employee != null)
                         {

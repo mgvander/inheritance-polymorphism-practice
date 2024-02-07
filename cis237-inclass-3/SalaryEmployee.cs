@@ -6,63 +6,41 @@ using System;
 
 namespace cis237_inclass_3
 {
-    class SalaryEmployee
+    class SalaryEmployee : Employee
     {
-        //*****************************
-        // Constants
-        //*****************************
-        const int WEEKS_PER_YEAR = 52;
-
         //*****************************
         //Variable / Backing fields
         //*****************************
-        private string firstName;
-        private string lastName;
-        private decimal weeklySalary;
-        private decimal yearlyBonus;
+        private decimal _weeklySalary;
+        private decimal _yearlyBonus;
 
         //*****************************
         //Properties
         //*****************************
-        public string FirstName
-        {
-            get { return firstName; }
-            set { firstName = value; }
-        }
-
-        public string LastName
-        {
-            get { return lastName; }
-            set { lastName = value; }
-        }
-
         public decimal WeeklySalary
         {
-            get { return weeklySalary; }
+            get { return _weeklySalary; }
         }
 
         public decimal YearlyBonus
         {
-            get { return yearlyBonus; }
-            set { yearlyBonus = value; }
+            get { return _yearlyBonus; }
+            set { _yearlyBonus = value; }
         }
 
         public decimal YearlySalary
         {
-            get { return (WeeklySalary * WEEKS_PER_YEAR) + yearlyBonus; }
+            get { return (WeeklySalary * WEEKS_PER_YEAR) + _yearlyBonus; }
         }
 
         //******************************
         //Public Methods
         //******************************
-        public string FirstAndLastName()
-        {
-            return firstName + " " + lastName;
-        }
-
         public override string ToString()
         {
-            return $"{firstName} {lastName} {WeeklySalary.ToString("C")}";
+            // Ask the parent to do the first and last name part by
+            // calling the ToString method in the parent/base class
+            return $"{base.ToString()} {WeeklySalary.ToString("C")}";
         }
 
         public string FormattedWeeklySalary()
@@ -72,21 +50,25 @@ namespace cis237_inclass_3
 
         public string FormattedYearlySalary()
         {
-            return ((WeeklySalary * WEEKS_PER_YEAR) + yearlyBonus).ToString("C");
+            return ((WeeklySalary * WEEKS_PER_YEAR) + _yearlyBonus).ToString("C");
         }
 
         //*****************************
         //Constructors
         //*****************************
-        public SalaryEmployee(string FirstName, 
-                              string LastName, 
-                              decimal WeeklySalary,
-                              decimal YearlyBonus)
+        public SalaryEmployee(string firstName, 
+                              string lastName, 
+                              decimal weeklySalary,
+                              decimal yearlyBonus)
+                                  // Call the parent constructor with the base
+                                  // keyword and pass in firstName and lastName
+                                  : base(firstName, lastName)
         {
-            this.firstName = FirstName;
-            this.lastName = LastName;
-            this.weeklySalary = WeeklySalary;
-            this.yearlyBonus = YearlyBonus;
+            // No need to set first and last name since they are
+            // handled by the work in the parent constructor.
+            this._weeklySalary = weeklySalary;
+            this._yearlyBonus = yearlyBonus;
+
         }
 
         public SalaryEmployee()

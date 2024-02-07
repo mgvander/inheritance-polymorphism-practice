@@ -6,51 +6,32 @@ using System.Threading.Tasks;
 
 namespace cis237_inclass_3
 {
-    internal class HourlyEmployee
+    internal class HourlyEmployee : Employee
     {
-        //*****************************
-        // Constants
-        //*****************************
-        const int WEEKS_PER_YEAR = 52;
-
         //*****************************
         //Variable / Backing fields
         //*****************************
-        private string firstName;
-        private string lastName;
-        private decimal hourlyRate;
-        private decimal hoursPerWeek;
+        private decimal _hourlyRate;
+        private decimal _hoursPerWeek;
 
         //*****************************
         //Properties
-        //*****************************
-        public string FirstName
-        {
-            get { return firstName; }
-            set { firstName = value; }
-        }
-
-        public string LastName
-        {
-            get { return lastName; }
-            set { lastName = value; }
-        }
-
+        //*****************************        
         public decimal HourlyRate
         {
-            get { return hourlyRate; }
-            set { hourlyRate = value; }
+            get { return _hourlyRate; }
+            set { _hourlyRate = value; }
         }
 
         public decimal HoursPerWeek
         {
-            get { return hoursPerWeek; }
-            set { hoursPerWeek = value; }
+            get { return _hoursPerWeek; }
+            set { _hoursPerWeek = value; }
         }
 
         public decimal WeeklySalary
         {
-            get { return hourlyRate * hoursPerWeek; }
+            get { return _hourlyRate * _hoursPerWeek; }
         }        
 
         public decimal YearlySalary
@@ -60,15 +41,12 @@ namespace cis237_inclass_3
 
         //******************************
         //Public Methods
-        //******************************
-        public string FirstAndLastName()
-        {
-            return firstName + " " + lastName;
-        }
-
+        //******************************        
         public override string ToString()
         {
-            return $"{firstName} {lastName} {WeeklySalary.ToString("C")}";
+            // Ask the parent to do the first and last name part by
+            // calling the ToString method in the parent/base class
+            return $"{base.ToString()} {WeeklySalary.ToString("C")}";
         }
 
         public string FormattedWeeklySalary()
@@ -84,15 +62,19 @@ namespace cis237_inclass_3
         //*****************************
         //Constructors
         //*****************************
-        public HourlyEmployee(string FirstName,
-                              string LastName,
+        public HourlyEmployee(string firstName,
+                              string lastName,
                               decimal HourlyRate,
-                              decimal HoursPerWeek)
+                              decimal HoursPerWeek) 
+                                  // Call the parent constructor with the base
+                                  // keyword and pass in firstName and lastName
+                                  : base(firstName, lastName)
         {
-            this.firstName = FirstName;
-            this.lastName = LastName;
-            this.hourlyRate = HourlyRate;
-            this.hoursPerWeek = HoursPerWeek;
+            // No need to set first and last name since they are
+            // handled by the work in the parent constructor.
+            this._hourlyRate = HourlyRate;
+            this._hoursPerWeek = HoursPerWeek;
+
         }
 
         public HourlyEmployee()
