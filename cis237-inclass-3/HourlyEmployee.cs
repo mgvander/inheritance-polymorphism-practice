@@ -29,15 +29,10 @@ namespace cis237_inclass_3
             set { _hoursPerWeek = value; }
         }
 
-        public decimal WeeklySalary
+        public override decimal WeeklySalary
         {
             get { return _hourlyRate * _hoursPerWeek; }
         }        
-
-        public decimal YearlySalary
-        {
-            get { return (WeeklySalary * WEEKS_PER_YEAR); }
-        }
 
         //******************************
         //Public Methods
@@ -49,16 +44,11 @@ namespace cis237_inclass_3
             return $"{base.ToString()} {WeeklySalary.ToString("C")}";
         }
 
-        public string FormattedWeeklySalary()
+        public override string FormattedWeeklySalary()
         {
             return WeeklySalary.ToString("C");
         }
-
-        public string FormattedYearlySalary()
-        {
-            return (WeeklySalary * WEEKS_PER_YEAR).ToString("C");
-        }
-
+        
         //*****************************
         //Constructors
         //*****************************

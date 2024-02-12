@@ -17,7 +17,7 @@ namespace cis237_inclass_3
         //*****************************
         //Properties
         //*****************************
-        public decimal WeeklySalary
+        public override decimal WeeklySalary
         {
             get { return _weeklySalary; }
         }
@@ -28,9 +28,9 @@ namespace cis237_inclass_3
             set { _yearlyBonus = value; }
         }
 
-        public decimal YearlySalary
+        public override decimal YearlySalary
         {
-            get { return (WeeklySalary * WEEKS_PER_YEAR) + _yearlyBonus; }
+            get { return base.YearlySalary + _yearlyBonus; }
         }
 
         //******************************
@@ -43,12 +43,12 @@ namespace cis237_inclass_3
             return $"{base.ToString()} {WeeklySalary.ToString("C")}";
         }
 
-        public string FormattedWeeklySalary()
+        public override string FormattedWeeklySalary()
         {
             return WeeklySalary.ToString("C");
         }
 
-        public string FormattedYearlySalary()
+        public override string FormattedYearlySalary()
         {
             return ((WeeklySalary * WEEKS_PER_YEAR) + _yearlyBonus).ToString("C");
         }
