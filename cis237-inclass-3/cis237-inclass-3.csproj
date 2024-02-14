@@ -6,4 +6,8 @@
     <RootNamespace>cis237_inclass_3</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FilterLibrary\FilterLibrary.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -3,6 +3,10 @@
 /// Inclass 3
 
 using System;
+// Must add a reference to our FilterLibrary before we can use it in here.
+// Once that is done, we can add this using statement so we don't have
+// to fully qualify it when we go to use it.
+using FilterLibrary;
 
 namespace cis237_inclass_3
 {
@@ -24,7 +28,7 @@ namespace cis237_inclass_3
             IEmployee[] employees = new IEmployee[10];
 
             // Let's add some employees to our array
-            employees[0] = new SalaryEmployee("David", "Barnes", 835.00m, 4000m);
+            employees[0] = new SalaryEmployee("David", "Barnes", 835.00m, 200m);
             employees[1] = new HourlyEmployee("James", "Kirk", 53.00m, 10m);
             employees[2] = new SalaryEmployee("Jean-Luc", "Picard", 290.00m, 2000m);
             employees[3] = new HourlyEmployee("Benjamin", "Sisko", 87.00m, 15m);
@@ -37,7 +41,7 @@ namespace cis237_inclass_3
             int choice = ui.GetUserInput();
 
             //While the choice they selected is not 2, continue to do work
-            while (choice != 2)
+            while (choice != 3)
             {
                 //See if the input they sent is equal to 1.
                 if (choice == 1)
@@ -59,11 +63,47 @@ namespace cis237_inclass_3
 
                     //Use the UI class to print out the string
                     ui.Output(outputString);
+
+                }
+
+                if (choice == 2)
+                {
+                    PersonFilter filter = new PersonFilter();
+
+                    IPerson[] filteredEmployees = filter.FilterByFirstName(employees, "David");
+
+                    // Create a string that can be concatenated to
+                    string outputString = "";
+
+                    // Print out the employees in the array
+                    foreach (IPerson employee in filteredEmployees)
+                    {
+                        // Here is how to do a manual downcast from one type to another.
+                        // Downcasting can cause runtime problems if you downcast incorrectly.
+                        IEmployee dcEmployee = (IEmployee)employee;
+
+                        if (dcEmployee != null)
+                        {
+                            // Concatenate to the outputString
+                            outputString += dcEmployee.ToString() +
+                                " " + dcEmployee.FormattedYearlySalary() +
+                                Environment.NewLine;
+                        }
+
+                    }
+
+                    //Use the UI class to print out the string
+                    ui.Output(outputString);
+
                 }
 
                 //re-prompt the user for input
                 choice = ui.GetUserInput();
+
             }
+
         }
+
     }
+
 }

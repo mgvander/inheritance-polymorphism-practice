@@ -38,6 +38,8 @@ namespace cis237_inclass_3
             set { _lastName = value; }
         }
 
+        public int Age { get; set; }
+
         // Made this property abstract because we want all sub-classes to implement it,
         // but we don't know how. So we leave the details to the sub-classes.
         // Abstract properties must...

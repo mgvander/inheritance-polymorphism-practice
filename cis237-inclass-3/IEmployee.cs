@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+// Must add a reference to our FilterLibrary before we can use it in here.
+// Once that is done, we can add this using statement so we don't have
+// to fully qualify it when we go to use it.
+using FilterLibrary;
 
 namespace cis237_inclass_3
 {
-    internal interface IEmployee
+    internal interface IEmployee : IPerson
     {
         // This is a very high level look at what a class that implements
         // this interface MUST do.
@@ -23,8 +27,8 @@ namespace cis237_inclass_3
         //*****************************
         //Properties
         //*****************************
-        string FirstName { get; set; }
-        string LastName { get; set; }
+        new string FirstName { get; set; }
+        new string LastName { get; set; }
         decimal WeeklySalary { get; }
         decimal YearlySalary { get; }
 
