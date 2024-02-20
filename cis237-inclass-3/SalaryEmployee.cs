@@ -6,7 +6,7 @@ using System;
 
 namespace cis237_inclass_3
 {
-    class SalaryEmployee : Employee
+    public class SalaryEmployee : Employee
     {
         //*****************************
         //Variable / Backing fields

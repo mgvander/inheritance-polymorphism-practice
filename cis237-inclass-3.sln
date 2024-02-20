@@ -5,7 +5,9 @@ VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cis237-inclass-3", "cis237-inclass-3\cis237-inclass-3.csproj", "{9E5BB9E7-C0F4-4191-8BEA-6FCE3A87C9A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilterLibrary", "FilterLibrary\FilterLibrary.csproj", "{A55D93C2-FBBF-4889-9C66-CD058A10F6A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilterLibrary", "FilterLibrary\FilterLibrary.csproj", "{A55D93C2-FBBF-4889-9C66-CD058A10F6A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cis237-inclass-3-unittest", "cis237-inclass-3-unittest\cis237-inclass-3-unittest.csproj", "{4764E5F4-CD6B-4E86-87D3-9702F7240658}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{A55D93C2-FBBF-4889-9C66-CD058A10F6A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A55D93C2-FBBF-4889-9C66-CD058A10F6A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A55D93C2-FBBF-4889-9C66-CD058A10F6A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4764E5F4-CD6B-4E86-87D3-9702F7240658}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4764E5F4-CD6B-4E86-87D3-9702F7240658}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4764E5F4-CD6B-4E86-87D3-9702F7240658}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4764E5F4-CD6B-4E86-87D3-9702F7240658}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -10,7 +10,7 @@ using FilterLibrary;
 
 namespace cis237_inclass_3
 {
-    internal interface IEmployee : IPerson
+    public interface IEmployee : IPerson
     {
         // This is a very high level look at what a class that implements
         // this interface MUST do.

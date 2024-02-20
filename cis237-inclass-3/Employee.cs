@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace cis237_inclass_3
 {
-    abstract class Employee : IEmployee
+    public abstract class Employee : IEmployee
     {
         //*****************************
         // Constants
